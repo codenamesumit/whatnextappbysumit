@@ -1,0 +1,80 @@
+<htmml>
+<head>
+	<title> What Next App by Sumit </title>
+	<style>
+		* { font - size: 100px; font = family: Cambria; }
+		body { background-image: url("im1.jpg");}
+	</style>
+
+	<script>
+		function show()
+		{
+			event.preventDefault();
+			let name = document.getElementById("name");
+			let ans = document.getElementById("ans");
+			let job = document.getElementById("job");
+			let mtech = document.getElementById("mtech");
+			let mba = document.getElementById("mba");
+
+			if(name.value == "")
+			{
+				alert("u did not enter name");
+				name.focus();
+				ans.innerHTML="";
+				return;
+			}
+
+			else if(name.value.trim()=="")
+			{
+				alert("name cannot be only spaces");
+				name.value="";
+				ans.innerHTML="";
+				return;
+			}
+			else if(! name.value.match(/^[A-Za-z]+$/))
+			{
+				alert("name shud contain only alpha");
+				name.value="";
+				ans.innerHTML="";
+				return;
+			}
+
+			let choice="";
+			if(job.checked)			choice="job";
+			else if(mtech.checked)		choice="mtech";
+			else 				choice="MBA";
+
+			let msg="name = " +name.value+" choice "+choice;
+			ans.innerHTML=msg;
+		}
+	</script>
+</head>
+
+<body>
+	<center>
+	<h1> What Next App </h1>
+	<form onsubmit = "show()">
+	<input type= "text" placeholder = " Enter a name " id = "name" />
+	<br><br>
+	<input type = "radio" name="c" id="job" checked=true/> job
+	<input type = "radio" name="c" id="mtech" /> mtech
+	<input type = "radio" name="c" id="mba" /> mba
+	<br><br>
+	<input type="submit"/>
+	</form>
+	<h2 id="ans"/>
+	</center>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
